@@ -1,10 +1,14 @@
 from django.urls import path
 
-from .views import HomePageView
+from .views import index,dadar,borivali,chembur
 
 
 
 urlpatterns = [
-    path('', HomePageView.as_view(), name='home'),
-    
+    path('', index, name='home'),
+    path('dadar', dadar, name='dadar'),
+    path('borivali', borivali, name='borivali'),
+    path('chembur', chembur, name='chembur')
+
+   
 ]

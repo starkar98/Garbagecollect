@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}SWACHH BHARAT| GOVT OF INDIA{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+  <div style="text-align:center">Hi admin: {{ user.username }}! Welcome to Swacch Bharat!!</div>
+  <table border="2" bordercolor="0000FF">
+    <tr><td colspan="3">
+      <h1 align="center" color="#00FFFF">Chembur</h1>
+    </td></tr>
+    <tr><td colspan="3"><h1 align="center">BIN 1</h1></td></tr>
+    <tr><td><iframe width="435" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/938220/charts/1?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe></td>
+        <td><iframe width="450" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/938220/widgets/129814"></iframe></td>
+      <td><iframe width="435" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/938220/charts/2?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe></td>
+    </tr>
+    <tr><td colspan="3"><h1 align="center">BIN 2</h1></td></tr>
+    <tr>
+      <td><iframe width="435" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/938220/charts/3?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe></td>
+      <td><iframe width="435" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/938220/widgets/142808"></iframe></td>
+      <td><iframe width="435" height="260" style="border: 1px solid #cccccc;" src="https://thingspeak.com/channels/938220/charts/4?bgcolor=%23ffffff&color=%23d62020&dynamic=true&results=60&type=line&update=15"></iframe></td>
+    </tr>
+  </table>
+  
+  <div class="buttontag">
+  <button type="submit" style ="margin-left:auto;margin-right:auto;display:block;margin-top:10px;margin-bottom:10px "><a href="{% url 'logout' %}">logout</a></button></p>
+    </div>
+{% else %}
+<!-----------homepage display content when not logged in starts from here edit below---->
+  <p>You are not logged in</p>
+  <a href="{% url 'login' %}">login</a>
+{% endif %}
+{% endblock %}
