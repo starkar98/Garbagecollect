@@ -1,14 +1,17 @@
 
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}SWACHH BHARAT| GOVT OF INDIA{% endblock %}
+{% block title %}SWACHH BHARAT| GOVT OF INDIA
+
+{% endblock %}
 
 {% block content %}
 {% if user.is_authenticated %}
 <a href="{% url 'dadar' %}">DADAR</a>
 <a href="{% url 'borivali' %}">BORIVALI</a>
 <a href="{% url 'chembur' %}">CHEMBUR</a>
-<a href = "{% url 'intro' %}">INTRO</a>
+
 
   <div class="buttontag">
   <button type="submit" style ="margin-left:auto;margin-right:auto;display:block;margin-top:10px;margin-bottom:10px "><a href="{% url 'logout' %}">logout</a></button></p>
@@ -16,9 +19,178 @@
 
     
 {% else %}
+<style type="text/css"> 
+body{
+	margin:0;
+	padding: 0;
+	font-family: Poppins;
+}
+
+/*.navbar{
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: row;
+	flex-wrap: wrap;
+	background-color: #3fa46a;
+	width: 100%;
+	height: 70px;
+	z-index: 1;
+}
+
+.nav{
+	display: flex;
+	justify-content: right;
+	list-style: none;
+	margin-right: 15%;
+}*/
+.logo{
+	flex: 1 1 auto;
+	margin-left: 10%
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: bold;
+	font-size: 35px;
+}
+
+a{
+	margin: 15px;
+	color: #000;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+a:hover{
+	color: #000;
+}
+.banner-area{
+	position: relative;
+	background-image: url("media/SBA.jpg");
+	width: 100%;
+	height:100vh;
+	background-repeat: no-repeat;
+	-webkit-background-size:cover;
+	background-size: cover;
+}
+.about-area, .contact-area, .citizens-area, .test-area{
+	position: relative;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	flex-wrap: wrap;
+	flex-direction: row;
+	width: 100%
+	height: 700px;
+
+}
+
+.text-part{
+	width: 65%
+	height: 80%;
+}
+h1{
+	font-size: 50px;
+	font-family: Audiowide;
+}
+p{
+	font-size: 24px;
+	line-height: 50px;
+}
+.about-area, .citizens-area{
+	background:#fefefe;
+}
+.contact-area, .test-area{
+	background:#262626;
+	color: #fff;
+}
+html{
+	scroll-behavior: smooth;
+}
+
+<style>
+
+a:visited {
+  color: purple;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: green;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+</style>
 
 <!-----------homepage display content when not logged in starts from here edit below---->
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> 
 
+	<div class="w3-bar w3-black">
+  <a href="#home" class="w3-bar-item w3-button w3-mobile">Home</a>
+  <a href="#about" class="w3-bar-item w3-button w3-mobile">About</a>
+  <a href="#Contact" class="w3-bar-item w3-button w3-mobile">Contact Us</a>
+  <a href="#Cc" class="w3-bar-item w3-button w3-mobile">Citizens Corner</a>
+  <a href="{% url 'login' %}" class="w3-bar-item w3-button w3-mobile">LOGIN FOR ADMIN</a>
+  	</div>
+	<!--<div class="navbar" [THIS NAVBAR IS NOT WORKING PROPERLY, RESIZING DOES NOT TAKE PLACE USING THIS NAVBAR]> 
+		<a href="#" class="logo">SMART DUSTBIN</a>
+		<ul class="nav">
+			<li><a href="#home">Home</a></li>
+			<li><a href="#about">About</a></li>
+			<li><a href="#Contact">Contact Us</a></li>
+			<li><a href="#Cc">Citizens Corner</a></li>
+			<li><a href="#Test1">Test 1</a></li>
+		</ul> 
+	</div>-->
+
+	<div class="banner-area" id="home">
+		<img src="/media/SBA.jpg">
+	</div>
+	<div class="about-area" id="about">
+		<div class="text-part">
+			
+			<h1> Problem Statement -:</h1><p>The greatest problem regarding waste management in developing countries begins at the very starting point of the process. Due to lack of proper systems for disposal and collections, wastes and garbage’s end up in the roads and surrounding. Instead of using plenty of bins in an unordered fashion around the city, we can have minimal no. of smart bins that can be placed. As we have seen all around us, the dustbins are getting overflow and concerned municipal authorities usually don’t get information within the stimulated time. To minimize this problem we are aiming to implement smart dustbins, which will indicate the level of the garbage in dustbins to the concerned municipal authorities. we have also ensured that the waste material does not overflow until the workers arrive to collect it by implementing a backup bin along with the main smart bin
+			</p>
+		</div>
+	</div>
+	<div class="contact-area" id="Contact">
+		<div class="text-part">
+			<h1>Contact Area</h1>
+			<p>
+			Email-: cleanthebin@gmail.com
+			</p><h3>
+			Solving the problems of citizens is on top priority of the corporation.To ensure faster problem solving approach we are soon going to provide <b><u> ANDROID APP SUPPORT</u></b> for complaints using <b><u>QR CODE SCANNER</u></b>.<br>For Instant Complaints visit our <b>citizens corner. </b></br> 
+			</h3></p>
+		</div>
+	</div>
+	<div class="citizens-area" id="Cc">
+		<div class="text-part">
+			<h1>Citizens Corner</h1><p>
+			<h2>Latest Tech News in Waste Management Sector -:</h2>
+				<ol><h4><li>
+				<a href="https://m.economictimes.com/news/politics-and-nation/with-new-technologies-and-knowledge-of-segregation-india-is-fast-learning-how-to-manage-its-waste/articleshow/58766783.cms" target="_blank">India is fast learning on how to manage waste.</a><br></li>
+				<li><a href="https://www.techxty.com/technology/internet-of-things-a-revolution-in-waste-management/" target="_blanks">Internet Of Things, a Revolution in Waste Management</a>
+				</li>
+				<li><a href="http://home.iitk.ac.in/~anubha/H13.pdf" target="_blanks">Status and challenges of municipal solid waste management</li></h4></ol>
+			<h3><b><a href="complaints.html" target="_blanks">File an issue or complaint</a></b></h3>
+			</p>
+
+		</div>
+	</div>
+	<div class="test-area" id="Test1">
+		<div class="text-part">
+			<h1>Test Area</h1>
+			<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</p>
+		</div>
+	</div>
 
   <!--<a href="{% url 'login' %}">login</a>-->
 {% endif %}
